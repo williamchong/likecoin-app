@@ -7,5 +7,7 @@ target 'LikeCoin' do
 
   # Pods for LikeCoin
   pod 'Firebase/Auth'
+  pod 'FirebaseUI/Auth'
+  pod 'FirebaseUI/Google'
 
 end
