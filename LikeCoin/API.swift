@@ -1,0 +1,65 @@
+//
+//  API.swift
+//  LikeCoin
+//
+//  Created by David Ng on 19/8/2019.
+//  Copyright © 2019 LikeCoin Foundation Limited. All rights reserved.
+//
+
+import Alamofire
+
+enum LikeCoinAPI: URLRequestConvertible {
+    case userSelf
+    case userLogin(platform: String, email: String, firebaseIdToken: String)
+    case userLogout
+    
+    static let baseURLString = "https://rinkeby.like.co"
+    
+    var method: HTTPMethod {
+        switch self {
+        case .userSelf:
+            return .get
+        case .userLogin:
+            return .post
+        case .userLogout:
+            return .post
+        }
+    }
+    
+    var path: String {
+        switch self {
+        case .userSelf:
+            return "/api/users/self"
+        case .userLogin:
+            return "/api/users/login"
+        case .userLogout:
+            return "/api/users/logout"
+        }
+    }
+
+    func asURLRequest() throws -> URLRequest {
+        let url = try LikeCoinAPI.baseURLString.asURL()
+        
+        var urlRequest = URLRequest(url: url.appendingPathComponent(path))
+        urlRequest.httpMethod = method.rawValue
+        
+        switch self {
+        case .userLogin(let platform, let email, let firebaseIdToken):
+            let parameters: Parameters = [
+                "platform": platform,
+                "email": email,
+                "firebaseIdToken": firebaseIdToken,
+            ]
+            do {
+                urlRequest.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
+            } catch {
+                // No-op
+            }
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        default:
+            break
+        }
+
+        return urlRequest
+    }
+}
