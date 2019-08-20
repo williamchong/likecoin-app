@@ -12,7 +12,7 @@ import FirebaseUI
 import Alamofire
 import SwiftyJSON
 
-class ViewController: UIViewController, FUIAuthDelegate {
+class ViewController: CommonViewController, FUIAuthDelegate {
 
     @IBOutlet weak var userInfoLabel: UILabel!
     @IBOutlet weak var authButton: UIButton!
@@ -23,14 +23,14 @@ class ViewController: UIViewController, FUIAuthDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        getUserInfoFromAPI { json in
+        getUserInfoFromAPI { (json, _) in
             self.setUserWith(json: json)
         }
     }
 
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         if let error = error {
-            print(error.localizedDescription)
+            alertError(error)
             return
         }
 
@@ -47,11 +47,15 @@ class ViewController: UIViewController, FUIAuthDelegate {
                 .responseString { response in
                     switch response.result {
                     case .success:
-                        self.getUserInfoFromAPI { json in
+                        self.getUserInfoFromAPI { (json, error) in
+                            if let error = error {
+                                self.alert(title: "Error on getting user info", message: error.localizedDescription)
+                                return
+                            }
                             self.setUserWith(json: json)
                         }
                     case .failure(let error):
-                        print("Error on login: \(String(describing: error))")
+                        self.alert(title: "Error on login", message: error.localizedDescription)
                     }
                 }
         }
@@ -92,7 +96,7 @@ class ViewController: UIViewController, FUIAuthDelegate {
                     case .success:
                         self.setUserWith(json: nil)
                     case .failure(let error):
-                        print("Error on logout: \(String(describing: error))")
+                        self.alert(title: "Error on logout", message: error.localizedDescription)
                     }
             }
         } catch let error as NSError {
@@ -100,7 +104,7 @@ class ViewController: UIViewController, FUIAuthDelegate {
         }
     }
     
-    func getUserInfoFromAPI(completion: @escaping (JSON?) -> Void) {
+    func getUserInfoFromAPI(completion: @escaping (JSON?, Error?) -> Void) {
         sessionManager
             .request(LikeCoinAPI.userSelf)
             .validate()
@@ -108,11 +112,10 @@ class ViewController: UIViewController, FUIAuthDelegate {
                 switch response.result {
                 case .success(let value):
                     let json = JSON(value)
-                    completion(json)
+                    completion(json, nil)
                     
                 case .failure(let error):
-                    print("Error on getting user info: \(String(describing: error))")
-                    completion(nil)
+                    completion(nil, error)
                 }
         }
     }

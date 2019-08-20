@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		835F2D88230C4211006F84D3 /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835F2D87230C4211006F84D3 /* CommonViewController.swift */; };
 		D8BDFE416CD8A25354369D5E /* Pods_LikeCoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C528C01E36F4B88DFC5881 /* Pods_LikeCoin.framework */; };
 		F861FF8223068EDB003D3B77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F861FF8123068EDB003D3B77 /* AppDelegate.swift */; };
 		F861FF8423068EDB003D3B77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F861FF8323068EDB003D3B77 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		835F2D87230C4211006F84D3 /* CommonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewController.swift; sourceTree = "<group>"; };
 		8CB5AE456DFDDB66B65380DF /* Pods-LikeCoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeCoin.debug.xcconfig"; path = "Target Support Files/Pods-LikeCoin/Pods-LikeCoin.debug.xcconfig"; sourceTree = "<group>"; };
 		A0213A82C368D72D515F612D /* Pods-LikeCoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeCoin.release.xcconfig"; path = "Target Support Files/Pods-LikeCoin/Pods-LikeCoin.release.xcconfig"; sourceTree = "<group>"; };
 		C6C528C01E36F4B88DFC5881 /* Pods_LikeCoin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LikeCoin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +92,7 @@
 				F861FF8D23068EDF003D3B77 /* Info.plist */,
 				F861FF932306908A003D3B77 /* GoogleService-Info.plist */,
 				F8DD2E1F230A9054009B359F /* API.swift */,
+				835F2D87230C4211006F84D3 /* CommonViewController.swift */,
 			);
 			path = LikeCoin;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F861FF8423068EDB003D3B77 /* ViewController.swift in Sources */,
+				835F2D88230C4211006F84D3 /* CommonViewController.swift in Sources */,
 				F8DD2E20230A9054009B359F /* API.swift in Sources */,
 				F861FF8223068EDB003D3B77 /* AppDelegate.swift in Sources */,
 			);
