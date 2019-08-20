@@ -62,6 +62,7 @@ PODS:
   - GoogleUtilities/UserDefaults (6.2.5):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.2)
+  - MBProgressHUD (1.1.0)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -74,6 +75,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - FirebaseUI/Auth
   - FirebaseUI/Google
+  - MBProgressHUD (~> 1.1.0)
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
@@ -92,6 +94,7 @@ SPEC REPOS:
     - GoogleToolboxForMac
     - GoogleUtilities
     - GTMSessionFetcher
+    - MBProgressHUD
     - nanopb
     - SwiftyJSON
 
@@ -110,9 +113,10 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: b3553629623a3b1bff17f555e736cd5a6d95ad55
   GoogleUtilities: e7dc37039b19df7fe543479d3e4a02ac8d11bb69
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: d2c561290477e874e72e3d491a97cfe9c8036136
+PODFILE CHECKSUM: 983f94ada84c2f91b778f55777ea7710065f70b0
 
 COCOAPODS: 1.7.5

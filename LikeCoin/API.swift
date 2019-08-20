@@ -63,3 +63,47 @@ enum LikeCoinAPI: URLRequestConvertible {
         return urlRequest
     }
 }
+
+enum LikerLandAPI: URLRequestConvertible {
+    case userLogin
+    case userLogout
+    case readerSuggest
+    case readerFollowed
+    
+    static let baseURLString = "https://rinkeby.liker.land"
+    
+    var method: HTTPMethod {
+        switch self {
+        case .userLogin:
+            return .get
+        case .userLogout:
+            return .post
+        case .readerSuggest:
+            return .get
+        case .readerFollowed:
+            return .get
+        }
+    }
+    
+    var path: String {
+        switch self {
+        case .userLogin:
+            return "/api/users/login"
+        case .userLogout:
+            return "/api/users/logout"
+        case .readerSuggest:
+            return "/api/reader/works/suggest"
+        case .readerFollowed:
+            return "/api/reader/works/followed"
+        }
+    }
+    
+    func asURLRequest() throws -> URLRequest {
+        let url = try LikerLandAPI.baseURLString.asURL()
+        
+        var urlRequest = URLRequest(url: url.appendingPathComponent(path))
+        urlRequest.httpMethod = method.rawValue
+        
+        return urlRequest
+    }
+}

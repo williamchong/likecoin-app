@@ -12,11 +12,8 @@ import FirebaseUI
 import Alamofire
 import SwiftyJSON
 
-class ViewController: CommonViewController, FUIAuthDelegate {
+class ViewController: CommonViewController, FUIAuthDelegate, LikerLandOAuthDelegate, HomeViewDelegate {
 
-    @IBOutlet weak var userInfoLabel: UILabel!
-    @IBOutlet weak var authButton: UIButton!
-    
     let sessionManager = Alamofire.SessionManager.default
     var user: JSON?
 
@@ -24,7 +21,26 @@ class ViewController: CommonViewController, FUIAuthDelegate {
         super.viewDidLoad()
 
         getUserInfoFromAPI { (json, _) in
-            self.setUserWith(json: json)
+            if json != nil {
+                self.setUserWith(json: json)
+                self.performSegue(withIdentifier: "showHome", sender: self)
+            } else {
+                self.showLoginPortal()
+            }
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "showLikerLandOAuthView":
+            let vc = segue.destination as! LikerLandOAuthViewController
+            vc.delegate = self
+        case "showHome":
+            let vc = segue.destination as! HomeViewController
+            vc.userLabel.text = "\(user?["user"] ?? "")"
+            vc.viewDelegate = self
+        default:
+            break
         }
     }
 
@@ -34,10 +50,12 @@ class ViewController: CommonViewController, FUIAuthDelegate {
             return
         }
 
+        let hud = showLoadingHUD(text: "Logging in")
         let user = authDataResult!.user
         user.getIDToken { (idToken, getIDTokenError) in
             if let error = getIDTokenError {
                 print(error.localizedDescription)
+                hud.hide(animated: true)
                 return
             }
 
@@ -45,6 +63,7 @@ class ViewController: CommonViewController, FUIAuthDelegate {
                 .request(LikeCoinAPI.userLogin(platform: "google", email: user.email!, firebaseIdToken: idToken!))
                 .validate()
                 .responseString { response in
+                    hud.hide(animated: true)
                     switch response.result {
                     case .success:
                         self.getUserInfoFromAPI { (json, error) in
@@ -53,6 +72,8 @@ class ViewController: CommonViewController, FUIAuthDelegate {
                                 return
                             }
                             self.setUserWith(json: json)
+
+                            self.performSegue(withIdentifier: "showLikerLandOAuthView", sender: self)
                         }
                     case .failure(let error):
                         self.alert(title: "Error on login", message: error.localizedDescription)
@@ -60,55 +81,80 @@ class ViewController: CommonViewController, FUIAuthDelegate {
                 }
         }
     }
+    
+    func likerLandDidFinishOAuthRedirect() {
+        performSegue(withIdentifier: "showHome", sender: self)
+    }
+
+    func likerLandDidFailOAuthRedirect() {
+        self.performSegue(withIdentifier: "showLikerLandOAuthView", sender: self)
+    }
+
+    func onClickLogoutButton() {
+        logout()
+    }
 
     func setUserWith(json: JSON?) {
         self.user = json
-        guard let user = json else {
-            authButton.setTitle("Login", for: .normal)
-            self.userInfoLabel.text = ""
-            return
-        }
-        authButton.setTitle("Logout", for: .normal)
-        userInfoLabel.text = "You are logged in as \(user["user"])";
     }
     
-    func login() {
+    func showLoginPortal() {
         let authUI = FUIAuth.defaultAuthUI()
-        authUI!.delegate = self
+        authUI?.delegate = self
         
         let providers: [FUIAuthProvider] = [
             FUIGoogleAuth(),
         ]
-        authUI!.providers = providers
+        authUI?.providers = providers
+        authUI?.shouldHideCancelButton = true
         
-        let authViewController = authUI!.authViewController()
-        present(authViewController, animated: true, completion: nil)
+        if let authViewController = authUI?.authViewController() {
+            present(authViewController, animated: true, completion: nil)
+        }
     }
     
     func logout() {
+        let hud = showLoadingHUD(text: "Logging out")
         do {
             try Auth.auth().signOut()
             sessionManager
-                .request(LikeCoinAPI.userLogout)
+                .request(LikerLandAPI.userLogout)
                 .validate()
                 .responseString { response in
                     switch response.result {
                     case .success:
                         self.setUserWith(json: nil)
                     case .failure(let error):
-                        self.alert(title: "Error on logout", message: error.localizedDescription)
+                        hud.hide(animated: true)
+                        self.alert(title: "Error on liker.land logout", message: error.localizedDescription)
                     }
-            }
+                    self.sessionManager
+                        .request(LikeCoinAPI.userLogout)
+                        .validate()
+                        .responseString { response in
+                            hud.hide(animated: true)
+                            switch response.result {
+                            case .success:
+                                self.setUserWith(json: nil)
+                                self.showLoginPortal()
+                            case .failure(let error):
+                                self.alert(title: "Error on like.co logout", message: error.localizedDescription)
+                            }
+                    }
+                }
         } catch let error as NSError {
             print(error.localizedDescription)
+            hud.hide(animated: true)
         }
     }
     
     func getUserInfoFromAPI(completion: @escaping (JSON?, Error?) -> Void) {
+        let hud = showLoadingHUD(text: "Getting user info")
         sessionManager
             .request(LikeCoinAPI.userSelf)
             .validate()
             .responseJSON { response in
+                hud.hide(animated: true)
                 switch response.result {
                 case .success(let value):
                     let json = JSON(value)
@@ -117,14 +163,6 @@ class ViewController: CommonViewController, FUIAuthDelegate {
                 case .failure(let error):
                     completion(nil, error)
                 }
-        }
-    }
-
-    @IBAction func handleClickAuthButton(_ sender: Any) {
-        if user != nil {
-            logout()
-        } else {
-            login()
         }
     }
 }

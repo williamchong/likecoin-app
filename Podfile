@@ -11,6 +11,7 @@ target 'LikeCoin' do
   pod 'FirebaseUI/Google'
   
   pod 'Alamofire', '~> 4.8.2'
+  pod 'MBProgressHUD', '~> 1.1.0'
   pod 'SwiftyJSON', '~> 4.0'
 
 end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BaB-Sb-oi5">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,46 +10,132 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="oIn-VS-D8g">
+            <objects>
+                <navigationController id="BaB-Sb-oi5" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eHT-sC-MvS">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="U3t-L9-mAN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Akk-kO-GZu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-810" y="98"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LikeCoin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LikeCoin" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwd-8P-wBk">
-                                <rect key="frame" x="20" y="448" width="374" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycb-UK-M7K">
-                                <rect key="frame" x="346" y="44" width="48" height="30"/>
-                                <state key="normal" title="Logout"/>
-                                <connections>
-                                    <action selector="handleClickAuthButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s1A-9a-IyZ"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="qwd-8P-wBk" secondAttribute="trailing" constant="20" id="4ym-yE-AyG"/>
-                            <constraint firstItem="qwd-8P-wBk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5dY-PN-C6P"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ycb-UK-M7K" secondAttribute="trailing" constant="20" id="bwk-7g-Bag"/>
-                            <constraint firstItem="ycb-UK-M7K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fRv-aZ-B8R"/>
-                            <constraint firstItem="qwd-8P-wBk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="h7j-vt-hxd"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Tfu-cl-ob1"/>
                     <connections>
-                        <outlet property="authButton" destination="ycb-UK-M7K" id="ruE-Li-WOq"/>
-                        <outlet property="userInfoLabel" destination="qwd-8P-wBk" id="kog-6r-JWK"/>
+                        <segue destination="hAM-zH-b99" kind="presentation" identifier="showLikerLandOAuthView" animates="NO" id="nGq-Dh-MXS"/>
+                        <segue destination="vEH-i5-YvD" kind="push" identifier="showHome" id="HTu-fX-gS6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="97.767857142857139"/>
         </scene>
+        <!--Content View Controller-->
+        <scene sceneID="Tpk-Br-mBM">
+            <objects>
+                <viewController id="oyK-o2-YI9" customClass="ContentViewController" customModule="LikeCoin" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HuJ-vP-a7j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3016" y="98"/>
+        </scene>
+        <!--Featured Content Table View Controller-->
+        <scene sceneID="o1H-Lb-3KB">
+            <objects>
+                <viewController id="deN-Rg-1Pf" customClass="FeaturedContentTableViewController" customModule="LikeCoin" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="M3s-U7-8He"/>
+                    <connections>
+                        <segue destination="oyK-o2-YI9" kind="show" identifier="showContent" id="0Qy-CA-lAP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LMX-NS-1GJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2114" y="-247"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="SeS-8z-vzb">
+            <objects>
+                <tabBarController id="vEH-i5-YvD" customClass="HomeViewController" customModule="LikeCoin" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="dqK-gQ-aiN">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="A6o-1s-8BX">
+                            <view key="customView" contentMode="scaleToFill" id="r3Q-hb-eP5">
+                                <rect key="frame" x="20" y="5.5" width="92" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D06-4X-o1B">
+                                        <rect key="frame" x="0.0" y="16.5" width="0.0" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="D06-4X-o1B" firstAttribute="centerY" secondItem="r3Q-hb-eP5" secondAttribute="centerY" id="1sH-a0-hk0"/>
+                                    <constraint firstItem="D06-4X-o1B" firstAttribute="leading" secondItem="r3Q-hb-eP5" secondAttribute="leading" id="aQf-Hb-Yw6"/>
+                                </constraints>
+                            </view>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="qnu-20-1PA">
+                            <connections>
+                                <action selector="onClickLogoutButton:" destination="vEH-i5-YvD" id="p4O-q8-HqO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="p1d-ws-7g7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <outlet property="logoutButton" destination="qnu-20-1PA" id="Smm-Ui-4DS"/>
+                        <outlet property="userLabel" destination="D06-4X-o1B" id="tFu-zA-vAJ"/>
+                        <segue destination="deN-Rg-1Pf" kind="relationship" relationship="viewControllers" id="T60-yx-mKp"/>
+                        <segue destination="PZA-nb-6Ri" kind="relationship" relationship="viewControllers" id="X7J-CB-0jM"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g5k-0U-eg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1196" y="98"/>
+        </scene>
+        <!--Liker LandO Auth View Controller-->
+        <scene sceneID="f8A-nl-d7Z">
+            <objects>
+                <viewController id="hAM-zH-b99" customClass="LikerLandOAuthViewController" customModule="LikeCoin" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uev-Aj-GUm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1197" y="-607"/>
+        </scene>
+        <!--Following Content Table View Controller-->
+        <scene sceneID="pzR-5o-DeY">
+            <objects>
+                <viewController id="PZA-nb-6Ri" customClass="FollowingContentTableViewController" customModule="LikeCoin" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="Tfm-fX-Isc"/>
+                    <connections>
+                        <segue destination="oyK-o2-YI9" kind="show" identifier="showContent" id="Xyl-Z0-ktH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qW3-we-w3P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2114" y="464"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Xyl-Z0-ktH"/>
+    </inferredMetricsTieBreakers>
 </document>
