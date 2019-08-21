@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>530006176836-jh1u7tvgulvk63dgv0o3jbeuuta4pofq.apps.googleusercontent.com</string>
+	<string>1013980258042-u8mtad0rsc0hkrb6fa6hegqo1raotppt.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.530006176836-jh1u7tvgulvk63dgv0o3jbeuuta4pofq</string>
+	<string>com.googleusercontent.apps.1013980258042-u8mtad0rsc0hkrb6fa6hegqo1raotppt</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAAoJfmgpp8t9vjxIVV0QFtVlfZWg25zWc</string>
+	<string>AIzaSyAB36J8Ps789r3WBzSUxeK5Ui_uzsJVia4</string>
 	<key>GCM_SENDER_ID</key>
-	<string>530006176836</string>
+	<string>1013980258042</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>co.like.LikeCoin</string>
 	<key>PROJECT_ID</key>
-	<string>likecoin-develop</string>
+	<string>likecoin-foundation</string>
 	<key>STORAGE_BUCKET</key>
-	<string>likecoin-develop.appspot.com</string>
+	<string>likecoin-foundation.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:530006176836:ios:385d82dfa1a4231c</string>
+	<string>1:1013980258042:ios:385d82dfa1a4231c</string>
 	<key>DATABASE_URL</key>
-	<string>https://likecoin-develop.firebaseio.com</string>
+	<string>https://likecoin-foundation.firebaseio.com</string>
 </dict>
 </plist>

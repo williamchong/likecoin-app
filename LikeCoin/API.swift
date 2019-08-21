@@ -13,7 +13,7 @@ enum LikeCoinAPI: URLRequestConvertible {
     case userLogin(platform: String, email: String, firebaseIdToken: String)
     case userLogout
     
-    static let baseURLString = "https://rinkeby.like.co"
+    static let baseURLString = "https://like.co"
     
     var method: HTTPMethod {
         switch self {
@@ -70,7 +70,7 @@ enum LikerLandAPI: URLRequestConvertible {
     case readerSuggest
     case readerFollowed
     
-    static let baseURLString = "https://rinkeby.liker.land"
+    static let baseURLString = "https://liker.land"
     
     var method: HTTPMethod {
         switch self {
