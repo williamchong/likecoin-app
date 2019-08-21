@@ -107,3 +107,40 @@ enum LikerLandAPI: URLRequestConvertible {
         return urlRequest
     }
 }
+
+enum LikeCoinPublicAPI: URLRequestConvertible {
+    case likeInfo(url: String)
+
+    static let baseURLString = "https://api.like.co"
+
+    var method: HTTPMethod {
+        switch self {
+        case .likeInfo:
+            return .get
+        }
+    }
+
+    var path: String {
+        switch self {
+        case .likeInfo:
+            return "/like/info"
+        }
+    }
+
+    func asURLRequest() throws -> URLRequest {
+        let url = try LikeCoinPublicAPI.baseURLString.asURL()
+
+        var urlRequest = URLRequest(url: url.appendingPathComponent(path))
+        urlRequest.httpMethod = method.rawValue
+
+        switch self {
+        case .likeInfo(let url):
+            let parameters: Parameters = ["url": url]
+            urlRequest = try URLEncoding.queryString.encode(urlRequest, with: parameters)
+        default:
+            break
+        }
+
+        return urlRequest
+    }
+}

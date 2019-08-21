@@ -22,6 +22,7 @@
 		F8DD2E26230D0E2B009B359F /* FeaturedContentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DD2E25230D0E2B009B359F /* FeaturedContentTableViewController.swift */; };
 		F8F48690230D137D00EEF7EE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F4868F230D137D00EEF7EE /* HomeViewController.swift */; };
 		F8F48692230D252C00EEF7EE /* FollowingContentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F48691230D252C00EEF7EE /* FollowingContentTableViewController.swift */; };
+		F8F48696230D48CB00EEF7EE /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F48695230D48CB00EEF7EE /* ContentTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		F8DD2E25230D0E2B009B359F /* FeaturedContentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedContentTableViewController.swift; sourceTree = "<group>"; };
 		F8F4868F230D137D00EEF7EE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F8F48691230D252C00EEF7EE /* FollowingContentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingContentTableViewController.swift; sourceTree = "<group>"; };
+		F8F48695230D48CB00EEF7EE /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				F8DD2E25230D0E2B009B359F /* FeaturedContentTableViewController.swift */,
 				F8F4868F230D137D00EEF7EE /* HomeViewController.swift */,
 				F8F48691230D252C00EEF7EE /* FollowingContentTableViewController.swift */,
+				F8F48695230D48CB00EEF7EE /* ContentTableViewCell.swift */,
 			);
 			path = LikeCoin;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				F861FF8223068EDB003D3B77 /* AppDelegate.swift in Sources */,
 				F8F48690230D137D00EEF7EE /* HomeViewController.swift in Sources */,
 				F8DD2E26230D0E2B009B359F /* FeaturedContentTableViewController.swift in Sources */,
+				F8F48696230D48CB00EEF7EE /* ContentTableViewCell.swift in Sources */,
 				835F2D8A230C7A81006F84D3 /* ContentViewController.swift in Sources */,
 				839F41A4230B2A6500745BF3 /* LikerLandOAuthViewController.swift in Sources */,
 			);

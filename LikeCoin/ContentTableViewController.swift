@@ -22,7 +22,7 @@ class ContentTableViewController: CommonViewController, UITableViewDelegate, UIT
         tableView.separatorInset = .zero
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(ContentTableViewCell.self, forCellReuseIdentifier: "cell")
         view = tableView
     }
 
@@ -41,8 +41,9 @@ class ContentTableViewController: CommonViewController, UITableViewDelegate, UIT
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel!.text = contentList[indexPath.row]["referrer"].stringValue
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ContentTableViewCell
+        let url = contentList[indexPath.row]["referrer"].stringValue
+        cell.fetchInfo(url: url)
         return cell
     }
 
