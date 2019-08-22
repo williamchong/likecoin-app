@@ -99,21 +99,21 @@
 			isa = PBXGroup;
 			children = (
 				F861FF8123068EDB003D3B77 /* AppDelegate.swift */,
+				835F2D87230C4211006F84D3 /* CommonViewController.swift */,
 				F861FF8323068EDB003D3B77 /* ViewController.swift */,
+				839F41A3230B2A6500745BF3 /* LikerLandOAuthViewController.swift */,
+				F8F4868F230D137D00EEF7EE /* HomeViewController.swift */,
+				F8DD2E21230D048A009B359F /* ContentTableViewController.swift */,
+				F8F48695230D48CB00EEF7EE /* ContentTableViewCell.swift */,
+				F8DD2E25230D0E2B009B359F /* FeaturedContentTableViewController.swift */,
+				F8F48691230D252C00EEF7EE /* FollowingContentTableViewController.swift */,
+				835F2D89230C7A81006F84D3 /* ContentViewController.swift */,
+				F8DD2E1F230A9054009B359F /* API.swift */,
 				F861FF8523068EDB003D3B77 /* Main.storyboard */,
-				F861FF8823068EDF003D3B77 /* Assets.xcassets */,
 				F861FF8A23068EDF003D3B77 /* LaunchScreen.storyboard */,
+				F861FF8823068EDF003D3B77 /* Assets.xcassets */,
 				F861FF8D23068EDF003D3B77 /* Info.plist */,
 				F861FF932306908A003D3B77 /* GoogleService-Info.plist */,
-				F8DD2E1F230A9054009B359F /* API.swift */,
-				839F41A3230B2A6500745BF3 /* LikerLandOAuthViewController.swift */,
-				835F2D87230C4211006F84D3 /* CommonViewController.swift */,
-				835F2D89230C7A81006F84D3 /* ContentViewController.swift */,
-				F8DD2E21230D048A009B359F /* ContentTableViewController.swift */,
-				F8DD2E25230D0E2B009B359F /* FeaturedContentTableViewController.swift */,
-				F8F4868F230D137D00EEF7EE /* HomeViewController.swift */,
-				F8F48691230D252C00EEF7EE /* FollowingContentTableViewController.swift */,
-				F8F48695230D48CB00EEF7EE /* ContentTableViewCell.swift */,
 			);
 			path = LikeCoin;
 			sourceTree = "<group>";
