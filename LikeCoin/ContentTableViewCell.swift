@@ -12,17 +12,18 @@ import SwiftyJSON
 
 class ContentTableViewCell: UITableViewCell {
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-    }
+    @IBOutlet weak var displayNameLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
     func fetchInfo(url: String) {
-        textLabel?.text = ""
-        detailTextLabel?.text = ""
+        displayNameLabel.text = " "
+        titleLabel.text = " "
+        descriptionLabel.text = " "
 
         Alamofire
             .request(LikeCoinPublicAPI.likeInfo(url: url))
@@ -30,8 +31,9 @@ class ContentTableViewCell: UITableViewCell {
                 switch response.result {
                 case .success(let value):
                     let json = JSON(value)
-                    self.textLabel?.text = "\(json["user"].stringValue) | \(json["title"].stringValue)"
-                    self.detailTextLabel?.text = json["description"].stringValue
+                    self.displayNameLabel.text = "\(json["user"].stringValue) | \(json["like"].intValue) LIKE"
+                    self.titleLabel.text = json["title"].stringValue
+                    self.descriptionLabel.text = json["description"].stringValue
 
                 case .failure(let error):
                     print(error.localizedDescription)

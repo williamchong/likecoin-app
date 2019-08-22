@@ -23,6 +23,7 @@
 		F8F48690230D137D00EEF7EE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F4868F230D137D00EEF7EE /* HomeViewController.swift */; };
 		F8F48692230D252C00EEF7EE /* FollowingContentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F48691230D252C00EEF7EE /* FollowingContentTableViewController.swift */; };
 		F8F48696230D48CB00EEF7EE /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F48695230D48CB00EEF7EE /* ContentTableViewCell.swift */; };
+		F8F48698230E767F00EEF7EE /* ContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8F48697230E767F00EEF7EE /* ContentTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		F8F4868F230D137D00EEF7EE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F8F48691230D252C00EEF7EE /* FollowingContentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingContentTableViewController.swift; sourceTree = "<group>"; };
 		F8F48695230D48CB00EEF7EE /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
+		F8F48697230E767F00EEF7EE /* ContentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				F8DD2E1F230A9054009B359F /* API.swift */,
 				F861FF8523068EDB003D3B77 /* Main.storyboard */,
 				F861FF8A23068EDF003D3B77 /* LaunchScreen.storyboard */,
+				F8F48697230E767F00EEF7EE /* ContentTableViewCell.xib */,
 				F861FF8823068EDF003D3B77 /* Assets.xcassets */,
 				F861FF8D23068EDF003D3B77 /* Info.plist */,
 				F861FF932306908A003D3B77 /* GoogleService-Info.plist */,
@@ -183,6 +186,7 @@
 				F861FF942306908A003D3B77 /* GoogleService-Info.plist in Resources */,
 				F861FF8923068EDF003D3B77 /* Assets.xcassets in Resources */,
 				F861FF8723068EDB003D3B77 /* Main.storyboard in Resources */,
+				F8F48698230E767F00EEF7EE /* ContentTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

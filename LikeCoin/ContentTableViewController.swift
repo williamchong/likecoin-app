@@ -23,11 +23,14 @@ class ContentTableViewController: CommonViewController, UITableViewDelegate, UIT
         super.loadView()
 
         tableView = UITableView(frame: .zero, style: .grouped)
+        view = tableView
+
         tableView.separatorInset = .zero
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(ContentTableViewCell.self, forCellReuseIdentifier: "cell")
-        view = tableView
+
+        let nib = UINib.init(nibName: "ContentTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "cell")
 
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(fetchContent), for: .valueChanged)
