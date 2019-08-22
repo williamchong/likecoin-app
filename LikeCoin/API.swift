@@ -137,8 +137,6 @@ enum LikeCoinPublicAPI: URLRequestConvertible {
         case .likeInfo(let url):
             let parameters: Parameters = ["url": url]
             urlRequest = try URLEncoding.queryString.encode(urlRequest, with: parameters)
-        default:
-            break
         }
 
         return urlRequest
