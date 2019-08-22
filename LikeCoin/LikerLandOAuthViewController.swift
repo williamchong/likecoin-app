@@ -56,11 +56,9 @@ class LikerLandOAuthViewController: CommonViewController, WKNavigationDelegate {
                 webView.configuration.websiteDataStore.httpCookieStore.getAllCookies { cookies in
                     for cookie in cookies {
                         HTTPCookieStorage.shared.setCookie(cookie)
-                        if cookie.name == "__session" {
-                            self.dismiss(animated: false, completion: nil)
-                            self.delegate?.likerLandDidFinishOAuthRedirect()
-                        }
                     }
+                    self.dismiss(animated: false, completion: nil)
+                    self.delegate?.likerLandDidFinishOAuthRedirect()
                 }
             } else if urlString.contains("/in/register") {
                 self.dismiss(animated: false, completion: nil)
