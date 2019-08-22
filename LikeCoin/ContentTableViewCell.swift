@@ -21,6 +21,9 @@ class ContentTableViewCell: UITableViewCell {
     }
 
     func fetchInfo(url: String) {
+        textLabel?.text = ""
+        detailTextLabel?.text = ""
+
         Alamofire
             .request(LikeCoinPublicAPI.likeInfo(url: url))
             .responseJSON { response in
