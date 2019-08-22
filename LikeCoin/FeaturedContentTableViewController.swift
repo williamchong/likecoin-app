@@ -11,8 +11,8 @@ import Alamofire
 
 class FeaturedContentTableViewController: ContentTableViewController {
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        fetchContent(api: LikerLandAPI.readerSuggest)
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        contentAPI = LikerLandAPI.readerSuggest
     }
 }
