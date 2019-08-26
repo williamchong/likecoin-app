@@ -26,6 +26,7 @@ class ContentTableViewController: CommonViewController, UITableViewDelegate, UIT
         view = tableView
 
         tableView.separatorInset = .zero
+        tableView.estimatedRowHeight = 82
         tableView.dataSource = self
         tableView.delegate = self
 
