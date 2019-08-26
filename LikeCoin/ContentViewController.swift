@@ -23,6 +23,8 @@ class ContentViewController: CommonViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.title = content.title
         
         let likeCoinURL = URL(string: LikeCoinAPI.baseURLString)!
         let cookies = HTTPCookieStorage.shared.cookies(for: likeCoinURL)
