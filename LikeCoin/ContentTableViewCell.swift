@@ -20,24 +20,20 @@ class ContentTableViewCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
 
-    func fetchInfo(url: String) {
-        displayNameLabel.text = " "
-        titleLabel.text = " "
-        descriptionLabel.text = " "
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        empty()
+    }
 
-        Alamofire
-            .request(LikeCoinPublicAPI.likeInfo(url: url))
-            .responseJSON { response in
-                switch response.result {
-                case .success(let value):
-                    let json = JSON(value)
-                    self.displayNameLabel.text = "\(json["user"].stringValue) | \(json["like"].intValue) LIKE"
-                    self.titleLabel.text = json["title"].stringValue
-                    self.descriptionLabel.text = json["description"].stringValue
+    func empty() {
+        displayNameLabel.text = ""
+        titleLabel.text = ""
+        descriptionLabel.text = ""
+    }
 
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-        }
+    func setContent(_ content: Content!) {
+        displayNameLabel.text =  "\(content.creatorLikerID) | \(content.likeCount) LIKE"
+        titleLabel.text = content.title
+        descriptionLabel.text = content.description
     }
 }

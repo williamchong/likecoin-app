@@ -17,7 +17,7 @@ class ContentTableViewController: CommonViewController, UITableViewDelegate, UIT
     var emptyMessageLabel: UILabel!
 
     var contentAPI: URLRequestConvertible?
-    var contentList: [JSON] = []
+    var contentURLs: [URL] = []
 
     override func loadView() {
         super.loadView()
@@ -55,14 +55,14 @@ class ContentTableViewController: CommonViewController, UITableViewDelegate, UIT
         switch segue.identifier {
         case "showContent":
             let vc = segue.destination as! ContentViewController
-            vc.request = URLRequest(url: URL(string: sender as! String)!)
+            vc.content = sender as? Content
         default:
             break
         }
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        if contentList.count > 0 {
+        if contentURLs.count > 0 {
             tableView.separatorStyle = .singleLine;
             return 1
         }
@@ -73,19 +73,33 @@ class ContentTableViewController: CommonViewController, UITableViewDelegate, UIT
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contentList.count
+        return contentURLs.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ContentTableViewCell
-        let url = contentList[indexPath.row]["referrer"].stringValue
-        cell.fetchInfo(url: url)
+        let url = contentURLs[indexPath.row]
+        if let content = ContentStore.shared.getContent(url: url) {
+            cell.setContent(content)
+        } else {
+            // TODO: Show loading indication
+            cell.empty()
+
+            ContentStore.shared.getContentAsync(url: url) { (content, _) in
+                if let content = content {
+                    cell.setContent(content)
+                    tableView.reloadRows(at: [indexPath], with: .fade)
+                }
+            }
+        }
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let urlString = contentList[indexPath.row]["referrer"].stringValue
-        performSegue(withIdentifier: "showContent", sender: urlString)
+        let url = contentURLs[indexPath.row]
+        if let content = ContentStore.shared.getContent(url: url) {
+            performSegue(withIdentifier: "showContent", sender: content)
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
@@ -102,7 +116,12 @@ class ContentTableViewController: CommonViewController, UITableViewDelegate, UIT
                 switch response.result {
                 case .success(let value):
                     let json = JSON(value)
-                    self.contentList = json["list"].arrayValue
+                    self.contentURLs = []
+                    for jsonObj in json["list"].arrayValue {
+                        if let url = URL(string: jsonObj["referrer"].stringValue) {
+                            self.contentURLs.append(url)
+                        }
+                    }
                     self.tableView.reloadData()
 
                 case .failure(let error):

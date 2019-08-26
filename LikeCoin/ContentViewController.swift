@@ -12,7 +12,7 @@ import WebKit
 class ContentViewController: CommonViewController {
     
     var webView: WKWebView!
-    var request: URLRequest?
+    var content: Content!
     
     override func loadView() {
         let webConfiguration = WKWebViewConfiguration()
@@ -29,8 +29,8 @@ class ContentViewController: CommonViewController {
         let cookieStore = webView.configuration.websiteDataStore.httpCookieStore
         for cookie in cookies! {
             cookieStore.setCookie(cookie) {
-                if cookie.name == "likecoin_auth" && self.request != nil {
-                    self.webView.load(self.request!)
+                if cookie.name == "likecoin_auth" {
+                    self.webView.load(URLRequest(url: self.content.url))
                 }
             }
         }

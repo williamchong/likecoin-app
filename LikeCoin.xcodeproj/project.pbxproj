@@ -11,6 +11,8 @@
 		835F2D8A230C7A81006F84D3 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835F2D89230C7A81006F84D3 /* ContentViewController.swift */; };
 		839F41A4230B2A6500745BF3 /* LikerLandOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839F41A3230B2A6500745BF3 /* LikerLandOAuthViewController.swift */; };
 		D8BDFE416CD8A25354369D5E /* Pods_LikeCoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C528C01E36F4B88DFC5881 /* Pods_LikeCoin.framework */; };
+		F825BBF82313E89400A1A9CE /* ContentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F825BBF72313E89400A1A9CE /* ContentStore.swift */; };
+		F825BBFA2313F07F00A1A9CE /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = F825BBF92313F07F00A1A9CE /* Content.swift */; };
 		F861FF8223068EDB003D3B77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F861FF8123068EDB003D3B77 /* AppDelegate.swift */; };
 		F861FF8423068EDB003D3B77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F861FF8323068EDB003D3B77 /* ViewController.swift */; };
 		F861FF8723068EDB003D3B77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F861FF8523068EDB003D3B77 /* Main.storyboard */; };
@@ -33,6 +35,8 @@
 		8CB5AE456DFDDB66B65380DF /* Pods-LikeCoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeCoin.debug.xcconfig"; path = "Target Support Files/Pods-LikeCoin/Pods-LikeCoin.debug.xcconfig"; sourceTree = "<group>"; };
 		A0213A82C368D72D515F612D /* Pods-LikeCoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeCoin.release.xcconfig"; path = "Target Support Files/Pods-LikeCoin/Pods-LikeCoin.release.xcconfig"; sourceTree = "<group>"; };
 		C6C528C01E36F4B88DFC5881 /* Pods_LikeCoin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LikeCoin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F825BBF72313E89400A1A9CE /* ContentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentStore.swift; sourceTree = "<group>"; };
+		F825BBF92313F07F00A1A9CE /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		F861FF7E23068EDB003D3B77 /* LikeCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LikeCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F861FF8123068EDB003D3B77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F861FF8323068EDB003D3B77 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 				F8F48691230D252C00EEF7EE /* FollowingContentTableViewController.swift */,
 				835F2D89230C7A81006F84D3 /* ContentViewController.swift */,
 				F8DD2E1F230A9054009B359F /* API.swift */,
+				F825BBF92313F07F00A1A9CE /* Content.swift */,
+				F825BBF72313E89400A1A9CE /* ContentStore.swift */,
 				F861FF8523068EDB003D3B77 /* Main.storyboard */,
 				F861FF8A23068EDF003D3B77 /* LaunchScreen.storyboard */,
 				F8F48697230E767F00EEF7EE /* ContentTableViewCell.xib */,
@@ -263,9 +269,11 @@
 				F8DD2E20230A9054009B359F /* API.swift in Sources */,
 				F861FF8223068EDB003D3B77 /* AppDelegate.swift in Sources */,
 				F8F48690230D137D00EEF7EE /* HomeViewController.swift in Sources */,
+				F825BBFA2313F07F00A1A9CE /* Content.swift in Sources */,
 				F8DD2E26230D0E2B009B359F /* FeaturedContentTableViewController.swift in Sources */,
 				F8F48696230D48CB00EEF7EE /* ContentTableViewCell.swift in Sources */,
 				835F2D8A230C7A81006F84D3 /* ContentViewController.swift in Sources */,
+				F825BBF82313E89400A1A9CE /* ContentStore.swift in Sources */,
 				839F41A4230B2A6500745BF3 /* LikerLandOAuthViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
