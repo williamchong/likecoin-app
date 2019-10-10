@@ -51,6 +51,7 @@ export class ContentViewScreen extends React.Component<ContentViewScreenProps, {
           />
           <WebView
             style={FULL}
+            mediaPlaybackRequiresUserAction={false}
             sharedCookiesEnabled={true}
             source={{ uri: content.url }}
           />

@@ -1,7 +1,9 @@
+import { Instance, SnapshotOut, types } from "mobx-state-tree"
+
 import { ReaderStoreModel } from "../../models/reader-store"
 import { UserStoreModel } from "../../models/user-store"
-import { Instance, SnapshotOut, types } from "mobx-state-tree"
 import { NavigationStoreModel } from "../../navigation/navigation-store"
+import { parseDeeplinkURL } from "../../utils/deeplink"
 
 /**
  * An RootStore model.
@@ -17,7 +19,7 @@ export const RootStoreModel = types.model("RootStore").props({
 })
 .actions(self => ({
   deferDeepLink(url: string) {
-    self.deferredDeepLink = url
+    self.deferredDeepLink = parseDeeplinkURL(url)
   },
   /**
    * Try to open a deep link
@@ -30,7 +32,7 @@ export const RootStoreModel = types.model("RootStore").props({
       type: "Navigation/PUSH",
       routeName: "ContentView",
       params: {
-        content: self.readerStore.getContentByURL(url),
+        content: self.readerStore.getContentByURL(parseDeeplinkURL(url)),
       },
     })
 
