@@ -139,7 +139,6 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 126
         versionName "0.11.5"
-        multiDexEnabled true
         missingDimensionStrategy 'react-native-camera', 'general'
     }
     splits {
@@ -195,12 +194,9 @@ android {
 }
 
 dependencies {
-    def multidex_version = "2.0.1"
-    implementation 'androidx.multidex:multidex:$multidex_version'
-
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
-    implementation 'io.intercom.android:intercom-sdk-fcm:5.+'
+    implementation 'io.intercom.android:intercom-sdk:6.+'
     implementation 'com.google.firebase:firebase-messaging:20.+'
 
     if (enableHermes) {
