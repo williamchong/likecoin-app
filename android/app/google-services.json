@@ -56,10 +56,11 @@
               "client_type": 3
             },
             {
-              "client_id": "1013980258042-u8mtad0rsc0hkrb6fa6hegqo1raotppt.apps.googleusercontent.com",
+              "client_id": "1013980258042-522c2iqgfn5k348v5uth971bsvflssq4.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "co.like.LikeCoin"
+                "bundle_id": "com.oice",
+                "app_store_id": "1248232355"
               }
             }
           ]
@@ -74,6 +75,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "1013980258042-p8p7lskvaao7ilvto3pjj5o5rt016tm4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.oice",
+            "certificate_hash": "61a3922f9e2e94ad1111520a876945119ebe82be"
+          }
+        },
         {
           "client_id": "1013980258042-ii21oetva353voiqkavs3sb8ui7keavc.apps.googleusercontent.com",
           "client_type": 3
@@ -92,10 +101,11 @@
               "client_type": 3
             },
             {
-              "client_id": "1013980258042-u8mtad0rsc0hkrb6fa6hegqo1raotppt.apps.googleusercontent.com",
+              "client_id": "1013980258042-522c2iqgfn5k348v5uth971bsvflssq4.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "co.like.LikeCoin"
+                "bundle_id": "com.oice",
+                "app_store_id": "1248232355"
               }
             }
           ]
