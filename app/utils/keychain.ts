@@ -24,10 +24,12 @@ export async function save(username: string, password: string, server?: string) 
 export async function load(server?: string) {
   if (server) {
     const creds = await ReactNativeKeychain.getInternetCredentials(server)
-    return {
-      username: creds.username,
-      password: creds.password,
-      server,
+    if (creds) {
+      return {
+        username: creds.username,
+        password: creds.password,
+        server,
+      }
     }
   } else {
     const creds = await ReactNativeKeychain.getGenericPassword()
@@ -37,13 +39,12 @@ export async function load(server?: string) {
         password: creds.password,
         server: null,
       }
-    } else {
-      return {
-        username: null,
-        password: null,
-        server: null,
-      }
     }
+  }
+  return {
+    username: null,
+    password: null,
+    server: null,
   }
 }
 

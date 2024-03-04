@@ -561,8 +561,8 @@ PODS:
     - React-Core
   - RNIap (10.1.3):
     - React-Core
-  - RNKeychain (3.1.3):
-    - React
+  - RNKeychain (8.2.0):
+    - React-Core
   - RNLocalize (1.1.4):
     - React
   - RNRate (1.2.12):
@@ -887,7 +887,7 @@ SPEC CHECKSUMS:
   BranchSDK: ce28650272c658fcdb66675769e670ef83845d17
   BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
-  DoubleConversion: 831926d9b8bf8166fd87886c4abab286c2422662
+  DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: 6fab494fa11340bd4206edaebed07279a6bafad4
   FBReactNativeSpec: 76d7b03876b0ad0b86bc5c84d23af8e64db8e096
   Firebase: c121feb35e4126c0b355e3313fa9b487d47319fd
@@ -910,7 +910,7 @@ SPEC CHECKSUMS:
   Flipper-RSocket: d9d9ade67cbecf6ac10730304bf5607266dd2541
   FlipperKit: cbdee19bdd4e7f05472a66ce290f1b729ba3cb86
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
-  glog: 5337263514dd6f09803962437687240c5dc39aa4
+  glog: 04b94705f318337d7ead9e6d17c019bd9b1f6b1b
   GoogleAppMeasurement: fd19169c3034975cb934e865e5667bfdce59df7f
   GoogleDataTransport: cd9db2180fcecd8da1b561aea31e3e56cf834aa7
   GoogleUtilities: e1d9ed4e544fc32a93e00e721400cbc3f377200d
@@ -920,7 +920,7 @@ SPEC CHECKSUMS:
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   Protobuf: 0cde852566359049847168e51bd1c690e0f70056
-  RCT-Folly: a21c126816d8025b547704b777a2ba552f3d9fa9
+  RCT-Folly: b9d9fe1fc70114b751c076104e52f3b1b5e5a95a
   RCTRequired: b9e53f0512019150020156fa0dacd6583ab838be
   RCTTypeSafety: 04b72202bef8302802610dee70bb9407a245b64c
   React: 59288a7ca8104eb8002f01378606fe42eeabf4b5
@@ -972,7 +972,7 @@ SPEC CHECKSUMS:
   RNFBRemoteConfig: d2c532f1fee5862a7518190211ea2a28123167c5
   RNGestureHandler: dec4645026e7401a0899f2846d864403478ff6a5
   RNIap: 45c674b3f57d8c2a80bd926436015cefbf1d2dfd
-  RNKeychain: c658833a9cb2cbcba6423bdd6e16cce59e27da0e
+  RNKeychain: bfe3d12bf4620fe488771c414530bf16e88f3678
   RNLocalize: 62a949d2ec5bee0eb8f39a80a48f01e2f4f67080
   RNRate: ef3bcff84f39bb1d1e41c5593d3eea4aab2bd73a
   RNReanimated: c6f8f70e96dd6ca21b65aef9b3e4efe4965db905
