@@ -5,6 +5,7 @@ export function initSentry(dsn: string, environment: string) {
     dsn,
     environment,
     debug: __DEV__,
+    tracesSampleRate: 0.1,
   })
 }
 
